@@ -17,12 +17,12 @@
 		],
 		"description": "Enumerate Block"
 	},
-    "Tcolorbox environment": {
+	"Tcolorbox environment": {
         "prefix": "bbox",
         "body": [
         "\\begin{tcolorbox}[",
-        "  colback=${1|white!10,yellow!20,green!10,blue!5|},",   
-        "  colframe=${2|black,blue!60!black,red!80!black,green!60!black|},",
+        "  colback=${1|blue!20,red!20,white!10,yellow!20,green!20|},",   
+        "  colframe=${2|blue!60,black,red!80!black,yellow!60!black,green!40!black|},",
         "  title={${3:Title}},",
         "  % caption={${4:Caption text}},",
         "  % label={${5:box:label}}",
