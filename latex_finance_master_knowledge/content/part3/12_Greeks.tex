@@ -1,0 +1,48 @@
+\chapter{Greeks and Sensitivity Analysis}\label{ch:greeks}
+
+\begin{abstract}
+Greeks quantify risk in multidimensional parameter space.  We derive
+analytic formulas under Black--Scholes, examine higher‑order metrics,
+and show Python checks using automatic differentiation.
+\end{abstract}
+
+\section{First‑Order Greeks}
+
+\[
+\begin{aligned}
+\Delta &= \partial_S C = N(d_1), \\
+\Theta &= \partial_t C = -\frac{S\sigma N'(d_1)}{2\sqrt{T}}
+                          - r K e^{-rT} N(d_2), \\
+\rho   &= \partial_r C = K T e^{-rT} N(d_2), \\
+\nu    &= \partial_\sigma C = S\sqrt{T} N'(d_1).
+\end{aligned}
+\]
+
+\section{Second‑Order Greeks}
+
+Gamma \(\Gamma = \partial^2_{SS} C = N'(d_1)/(S\sigma\sqrt{T})\).  
+Vanna, vomma, speed for volatility trading desks.
+
+\section{Python Automatic Differentiation (JAX)}
+
+\begin{minted}{python}
+import jax.numpy as jnp
+from jax import grad
+
+bs = lambda S, K, r, sigma, T: ...
+delta = grad(bs, argnums=0)
+gamma = grad(delta, argnums=0)
+\end{minted}
+
+\section{Greeks Aggregation and Risk Reports}
+
+Risk P\&L:
+\(\Delta P \approx \Delta\cdot\Delta S + \tfrac12\Gamma(\Delta S)^2
+            + \nu\Delta\sigma + \dots\)
+
+\section*{Key Takeaways}
+\begin{itemize}
+  \item Greeks are partial derivatives; numerical estimation requires
+        step‑size control.
+  \item Risk aggregation across portfolios uses position‑weighted sums.
+\end{itemize}

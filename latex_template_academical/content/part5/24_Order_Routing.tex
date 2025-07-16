@@ -1,0 +1,43 @@
+\chapter{Order Routing \& Market Connectivity}\label{ch:orderrouting}
+
+\begin{abstract}
+Fast and reliable connectivity determines execution quality.  We dissect
+network architectures, connectivity protocols (FIX, ITCH/OUCH) and smart
+order‑routing (SOR) algorithms that optimise venue selection.
+\end{abstract}
+
+\section{Connectivity Topology}
+
+\begin{itemize}
+  \item \textbf{Direct Market Access (DMA)} – broker pipes orders straight
+        to exchange gateways.
+  \item \textbf{Sponsored Access} – client bypasses broker systems but
+        uses broker’s membership (must pass “15c3‑5” filters).
+  \item \textbf{Colocation} – servers hosted in exchange data centre;
+        round‑trip latencies \(<\SI{100}{\micro\second}\).
+\end{itemize}
+
+\section{Protocols}
+
+\paragraph{FIX 4.x} Human‑readable tag = value pairs; survives middle‑/back‑office because of extensibility.  
+\paragraph{ITCH/OUCH} Binary, sequence‑numbered; carries full L2 feed and nanosecond timestamps.
+
+\section{Smart Order Routing (SOR)}
+
+Algorithm partitions a parent order across venues \(i\) with probability
+proportional to depth and historical fill rates:
+\[
+w_i = \frac{D_i^{\alpha}}{\sum_j D_j^{\alpha}},
+\]
+where \(\alpha\in[0,1]\) tunes aggressiveness vs liquidity.
+
+\section{Risk Controls}
+
+* Pre‑trade checks: notional, share and price collars.  
+* Kill‑switches triggered by runaway fills or connectivity loss.
+
+\section*{Key Takeaways}
+\begin{enumerate}
+  \item Latency matters but deterministic jitter and fail‑over matter more.
+  \item FIX is lingua franca; binary feeds power sub‑millisecond decisioning.
+\end{enumerate}

@@ -1,0 +1,47 @@
+\chapter{Stochastic Volatility and Jump Models}\label{ch:stochvol}
+
+\begin{abstract}
+We relax the constant‑volatility and continuous‑path assumptions.
+Heston, SABR and Merton jump‑diffusion capture skew, smile and kurtosis
+in observed option markets.
+\end{abstract}
+
+\section{Heston Model}
+
+\[
+\begin{aligned}
+\diff S_t &= \mu S_t \diff t + \sqrt{v_t}\,S_t \diff W_t^{(1)}, \\
+\diff v_t &= \kappa(\theta - v_t)\diff t + \xi\sqrt{v_t}\,\diff W_t^{(2)},\;
+           \diff W^{(1)}\diff W^{(2)}=\rho\,\diff t.
+\end{aligned}
+\]
+
+Characteristic‑function pricing via Fourier transform (Carr–Madan).
+
+\section{SABR}
+
+Forward \(F_t\) dynamics:
+\[
+\diff F_t = v_t F_t^\beta \diff W_t^{(1)},\quad
+\diff v_t = \nu v_t \diff W_t^{(2)}.
+\]
+
+Asymptotic implied‑vol formula widely used in interest‑rate swaptions.
+
+\section{Jump‑Diffusion (Merton)}
+
+\(\diff S_t/S_t = (\mu-\lambda k)\diff t + \sigma \diff W_t
+                  + (J-1)\diff N_t\).
+
+PDF is infinite mixture of normals; option price is
+weighted sum of Black--Scholes terms.
+
+\section{Calibration Notes}
+
+Non‑linear optimisation on implied‑vol surface; regularise to avoid over‑fitting.
+
+\section*{Key Takeaways}
+\begin{itemize}
+  \item Stochastic vol explains smile curvature; jumps add fat tails.
+  \item Semi‑closed‑form methods (Fourier, saddle‑point) aid speed.
+\end{itemize}

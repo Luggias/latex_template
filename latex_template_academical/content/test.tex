@@ -1,0 +1,239 @@
+\section{Begriffsdefinitionen}
+\subsection{What is a Option?}
+Eine Option ist ein Derivat, das dir das Recht gibt, einen Basiswert (z.B. Aktie, Coin, ETF) 
+zu einem bestimmten Strike Price (Ausübungspreis) bis zu einem bestimmten Verfallsdatum zu 
+kaufen oder zu verkaufen:
+\begin{itemize}
+    \item Call-Option: Recht zu kaufen
+    \item Put-Option: Recht zu verkaufen
+\end{itemize}
+
+\subsection{In the Money (ITM)}
+Eine Option ist “in the money”, wenn sie einen inneren Wert hat also bei sofortiger Ausübung einen finanziellen Vorteil bringt.
+Call Option ITM: Wenn der Kurs des Basiswerts (=underlying) > Strike Price
+Beispiel: Call auf Apple mit Strike 180€ und Apple steht bei 200€. Dann ist der Call 20€ im Geld.
+Put Option ITM: Wenn der Kurs des Basiswerts (underlying) < Strike Price:
+Beispiel: Put auf BTC mit Strike 60.000€ und BTC steht bei 55.000€. Dann ist der Put 5.000€ im Geld.
+
+\subsection{At the Money (ATM)}
+Der Strike Price ist ungefähr gleich dem aktuellen Marktpreis des Basiswerts (underlying).
+\textbf{Eigenschaften:}
+\begin{itemize}
+  \item Innerer Wert: 0
+  \item Zeitwert: Maximal \\
+  Weil nicht klar ist, ob die Option am Ende \textbf{im Geld} oder \textbf{aus dem Geld} landen wird, zahlt der Käufer die größte Unsicherheit und das ist der Zeitwert.
+  \item Theta: Am höchsten (Preis sinkt) \\
+  Da der Zeitwert hoch ist, verfällt dieser am schnellsten (besonders in den letzten Tagen vor Ablauf).
+  \item Gamma (Delta Änderung): Am höchsten \\
+  Eine kleine Kursänderung kann die Option sofort ins Geld oder aus dem Geld bewegen \rightarrow der Delta-Wert ändert sich am schnellsten. \\
+  \rightarrow Das nennt man hohes Gamma!
+  \item Delta (Kurs-Sensitivität): 0.50
+  \item Vega (IV-Sensitivität): Hoch, aber nicht maximal (etwas höher bei leicht OTM)
+\end{itemize}
+
+\subsection{Out of the Money (OTM)}
+Eine Option ist “out of the money”, wenn sie keinen inneren Wert hat – also bei sofortiger Ausübung nichts wert wäre (nur Zeitwert vorhanden).
+Call Option OTM: Wenn der Kurs < Strike Price
+Beispiel: Strike 220€, aber der Basiswert steht bei 200€. Der Call ist 20€ aus dem Geld.
+Put Option OTM: Wenn der Kurs > Strike Price
+Beispiel: Strike liegt bei 50.000€, aber BTC bei 55.000€. Dann ist der Put 5.000€ aus dem Geld.
+
+\textbf{\underline{Warum ist dies wichtig?}} (Insbesondere im Volatility Trading?)
+\begin{enumerate}
+  \item \textbf{Preisbildung (Optionsprämie):}
+  \begin{itemize}
+    \item ITM-Optionen haben \textbf{inneren Wert + Zeitwert}
+    \item OTM-Optionen haben \textbf{nur Zeitwert} (rein spekulativ)
+  \end{itemize}
+  \item \textbf{Volatilität wirkt stärker auf OTM-Optionen:} \\
+  OTM-Optionen sind besonders sensibel gegenüber Änderungen in der impliziten Volatilität (IV) – z.B. bei Earnings, CPI-Daten oder Fed-Sitzungen. Du kannst sie günstig kaufen und von einem starken Move profitieren (High Gamma Exposure).
+  \item \textbf{Strategien nutzen ITM/OTM gezielt:}
+  \begin{itemize}
+    \item Long Straddle/Strangle: Nutzt meist \textbf{OTM-Optionen}
+    \item Covered Call oder Cash Secured Put: Nutzt oft \textbf{ITM- oder leicht OTM-Optionen} für defensivere Rendite.
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Option-Pricing}
+\textbf{Preis (Optionsprämie) = Marktwert der Option} \\
+Die Optionsprämie ist das, was man am Markt für eine Option zahlen muss. Börsen sind z.B. die CBOE, Deribit etc. Der Optionspreis beinhaltet Erwartungen, Zeit, Kurs, Strike, Volatility, Interest Rates, \dots
+
+\subsubsection{Intrinsiv Value}
+Der innere Wert ist der positive Betrag, den man bekommen würde, wenn man die Option sofort ausübt. 
+\begin{itemize}
+  \item \textbf{Formel Call-Option:} \textit{max(0, Kurs des Underlyings - Strike Price)}
+  \item \textbf{Formel Put-Option:} \textit{max(0, Strike Price - Kurs des Underlyings)}
+\end{itemize}
+
+\subsubsection{Zeitwert}
+Der Zeitwert (time value) ist der Anteil des Optionspreises, der auf künftige Chancen und Unsicherheiten basiert. Er hängt ab von:
+\begin{itemize}
+  \item Time to maturity / expiration
+  \item Implied Volatility (IV)
+  \item Interest Rates
+  \item Expected Price Movement
+\end{itemize}
+
+\subsubsection{Intrinsiv Value vs. Time Value}
+Eine Option besteht preislich immer aus: \textbf{Intrinsiv Value + Zeitwert}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{cccc}
+        \hline
+        \textbf{Typ} & \textbf{ITM} & \textbf{ATM} & \textbf{OTM} \\
+        \hline
+        \textbf{Intrinsic Value} & High & 0 & 0 \\
+        \hline
+        \textbf{Time Value} & Niedriger Anteil & Höchster Anteil & Geringer Anteil \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Implied Volatility (IV)}
+Die vom Markt erwartete zukünftige Schwankungsbreite (Volatilität) eines Basiswertes über die Restlaufzeit der Option, ausgedrückt als annualisierte Standardabweichung in Prozent. \\
+\textbf{Wichtig:} Sie ist nicht gemessen, sondern impliziert, daher vom Markt aus dem Preis der Option rückgerechnet (impliziert).
+
+Die \textbf{Historische Volatilität} (realized / HV) entspricht der tatsächlichen Schwankung des Basiswertes in der Vergangenheit.
+\\
+Im Optionspreis steckt IV im Zeitwert-Anteil und nicht im inneren Wert. 
+\begin{itemize}
+  \item Eine hohe IV \rightarrow teure Prämien
+  \item Eine niedrige IV \rightarrow günstige Prämien
+\end{itemize}
+Mathematisch steckt IV in Modellen wie dem Black-Scholes-Modell al seiner der zentralen Inputs.
+
+$C=f(S,K,T,r,σ)$
+
+\begin{itemize}
+  \item C = Call-Price
+  \item S = aktueller Kurs
+  \item K = Strike
+  \item T = Time to Maturity
+  \item r = risikofreier Zins
+  \item \sigma = Volatility \rightarrow hier ist IV!
+\end{itemize}
+
+\subsection{VEGA (Einfluss von Volatility)}
+Vega = Änderung des Optionspreises bei +1 Prozentpunkt Veränderung der impliziten Volatilität (IV) \\
+Vega misst, wie stark der Preis der Option auf eine Änderung der impliziten Volatilität (IV) reagiert.
+Vega-Effekt bei IV-Anstieg:
+\begin{itemize}
+  \item \textbf{OTM Option}: stark steigender Preis
+  \item \textbf{ITM Option}: stark sinkender Preis
+\end{itemize}
+OTM-Optionen leben vom Zeitwert – und der bläht sich auf, wenn die Marktteilnehmer erwarten, dass große Bewegungen bevorstehen.
+Das heißt: Volatility Trading = OTM Optionen profitieren überproportional von IV-Sprüngen
+Je länger die Restlaufzeit, desto größer das Vega
+Weil: Je mehr Zeit bis zum Verfall, desto mehr kann sich das Underlying noch bewegen → also desto wertvoller wird Volatilität.
+Short-Term Optionen haben geringes Vega, sind also weniger empfindlich auf IV-Bewegungen.
+Willst du IV handeln → nutze mittel- bis langfristige Optionen.
+ATM-Optionen (Strike ≈ aktueller Kurs) haben das höchste Vega. Weil: ATM-Optionen haben den höchsten Zeitwert, also die größte Unsicherheit, ob sie am Ende ITM oder OTM verfallen – das macht sie IV-sensitiver.
+Je näher das Verfallsdatum, desto Schneller nimmt Vega ab. Denn Volatilität hat nur dann Wert, wenn noch Zeit für Bewegung ist. Eine Option, die morgen verfällt, reagiert kaum noch auf IV-Änderungen.
+
+\textbf{\underline{Implikation:}}
+Wenn man auf IV-Anstieg spekuliert, sollte man Optionen mit mehr Laufzeit kaufen – sonst reagiert der Preis nicht genug. \\
+\textbf{Vega ist eine lineare Approximation.}
+Vega ändert sich mit:
+\begin{itemize}
+  \item Zeit (weniger Restlaufzeit = weniger Vega)
+  \item Kursbewegung (ATM/OTM/ITM Verschiebung)
+  \item Änderung der IV selbst.
+\end{itemize}
+Wenn man \textbf{Vega-long} ist, will man: \textbf{IV-Anstieg + Bewegung}
+Wenn man \textbf{Vega-short} ist, will man: \textbf{IV-Rückgang + Ruhe im Markt}
+\\
+\textbf{Konkrete Fomel (Black-Scholes-Vega)}
+Für eine europäische Option lautet die Vega-Formel im Black-Scholes-Modell: 
+$ Vega=S⋅ϕ(d1)⋅T$
+\begin{itemize}
+  \item S: aktueller Preis der Underlyings
+  \item $ϕ(d1)$: Standardnormalverteilungsdichte (höchste bei ATM)
+  \item T: Underlyings Restlaufzeit
+\end{itemize}
+
+\subsection{Zeitverfall Theta}
+Theta misst, wie stark der Preis der Option täglich durch Zeitablauf sinkt, ohne dass sich etwas bewegt. 
+\begin{itemize}
+  \item ATM-Optionen haben das höchste Theta (größter Zeitwert)
+  \item OTM-Optionen verfallen oft am schnellsten auf Null (weil sie keinen inneren Wert haben)
+  \item ITM-Optionen verlieren Zeitwert, behalten aber den inneren Wert.
+\end{itemize}
+
+\subsection{Zero Days to Expire Optionen 0DTE}
+0DTE-Optionen sind Optionen, die am gleichen Tag verfallen, an dem man sie handelt. Das heißt:
+\begin{itemize}
+  \item Laufzeit = Tagen
+  \item Um 16:00 (bei US-Aktien) oder je nach Markt verfallen sie wertlos oder werden ausgeübt.
+\end{itemize}
+
+\textbf{\underline{Warum sind sie derzeit so beliebt?}}
+\begin{enumerate}
+  \item \textbf{Hohes GEwinnpotential bei minimalen Kapitaleinsatz}
+  \begin{itemize}
+    \item 0DTE Optionen sind billig (wenig Zeitwert)
+    \item Selbst bei kleinen Bewegungen im Underlying können eine OTM-Option in wenigen Minuten ins Geld bringen.
+    \item Wenn man richtig liegt, sind 100-500 Prozent Return intraday keine Seltenheit
+  \end{itemize}
+  \item \textbf{Gezielter Einsatz von Volatility + Directional Bets}
+  \begin{itemize}
+    \item Trader setzen auf Ereignisse: Fed-Zinsentscheid, CPI, Earnings
+    \item Volatitly Scalper nutzen kleine Intraday-Moves mit hohem Gamma Exposure
+    \item Optionen verhalten sich hochexplosiv, sobald Strike getroffen wird
+  \end{itemize}
+  \item \textbf{Extrem hoher Zeitverfall (Theta)}
+  \begin{itemize}
+    \item Die Option verliert pro Stunde massiv an Wert
+    \item Short Seller (z.B. Market Maker) nutzen das für das Theta Capture z.B. durch Iron Condors oder Short Straddles
+  \end{itemize}
+\end{enumerate}
+
+\textbf{\underline{Was sind die Risiken}}
+\begin{enumerate}
+  \item \textbf{Extrem hohes Gamma (hohe Reaktionsgeschwindigkeit)}
+  \begin{itemize}
+    \item Delta ändert sich sehr schnell bei Kursbewegungen
+    \item OTM kann in 5 Minuten ITM werden, oder umgekehrt \rightarrow Hohe Chance = Hohe Volatility im Optionspreis
+  \end{itemize}
+  \item \textbf{Sehr hoher Zeitwertverfall}
+  \begin{itemize}
+    \item Innerhalb von Minuten kann man alles verlieren, wenn man long ist und der Kurs sich nicht bewegt.
+    \item Bei IV-Abfall (nach Event): Vega spielt kaum noch eine Rolle, aber Theta frisst alles weg
+  \end{itemize}
+  \item \textbf{Kein Raum für Fehler}
+  \begin{itemize}
+    \item Kein „morgen“ mehr – entweder dein Play funktioniert heute, oder du verlierst 100 Prozent
+    \item Auch Slippage und Fill-Quality sind problematisch bei hoher Volatilität
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Unterschied Optionen und CFDs}
+Sie sind beide Derivate
+\subsubsection{Optionen}
+Ein Recht (aber keine Pflicht), einen Basiswert zu einem festen Preis bis zu einem bestimmten Datum zu kaufen oder verkaufen (schreiben).
+\begin{itemize}
+  \item Es gibt Calls (Kaufrecht) und Puts (Verkaufsrecht)
+  \item Man kann sie kaufen oder verkaufen (schreiben)
+  \item Preise hängen stark von Volatilität, Restlaufzeit, Strike, Greeks ab
+  \item Man kann Volatilität direkt handeln (über IV/Vega)
+\end{itemize}
+Nichtlinear, sensitiv für IV, Theta, Gamma, Delta
+Eine Option kann sich im Preis stark verändern, selbst wenn sich der Kurs nicht bewegt 
+\rightarrow wegen Volatilität oder Zeitverfall
+Linear: Kurs rauf = Gewinn, Kurs runter = Verlust (je nach Position)
+Keine komplexe Preisdynamik – 1:1 Abbildung mit Hebel
+
+\subsubsection{CFDs (Contract for Difference)}
+Ein Vertag zwischen Trader und Broker, den Differenzbetrag zwischen Eröffnungs- und Schlusskurs eines Assets in bar auszugleichen.
+
+\begin{itemize}
+  \item Du besitzt den Basiswert nicht, sondern spekulierst rein auf Kursbewegung
+  \item CFDs sind linear: 1 Punkt Bewegung = definierter Gewinn/Verlust
+  \item Sehr flexibel, aber oft hohe Gebühren und Spreads
+  \item Volatility wirkt indirekt, aber man kann sie nicht direkt handeln
+\end{itemize}
+
+\subsubsection{Levarage}
+Optionen und CFDs nutzen Hebel sehr unterscheidlich, obwohl das Ergebnis (mehr Gewinn oder mehr Verlust bei kleinerem Kapitaleinsatz) auf den ersten Blick ähnlich aussieht.
+Hebelwirkung bedeutet: Mehr Kapital wird bewegt, als eingesetzt, um eine größere Marktposition zu kontrollieren.
+Formel (klassisch CFDs): Hebel = Positionswert / Eigenkapital

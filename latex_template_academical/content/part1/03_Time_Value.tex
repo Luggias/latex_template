@@ -1,0 +1,39 @@
+\chapter{Time Value of Money}\label{ch:timevalue}
+
+\section{Discounting and Compounding}
+
+A cash flow \(C\) at time \(T\) has present value
+\(PV = C/(1+r)^T\) under annual compounding.
+Continuous compounding gives \(PV = C\,e^{-rT}\).
+
+\begin{definition}{Yield Curve}{}
+A \emph{yield curve} plots term‑structure \(r(T)\).
+Bootstrapping derives zero rates from coupon‑bearing bonds.
+\end{definition}
+
+\subsection{Duration and Convexity}
+\[
+D = -\frac{1}{P}\frac{\diff P}{\diff y},\quad
+C = \frac{1}{P}\frac{\diff^2 P}{\diff y^2}.
+\]
+
+These measure first‑ and second‑order sensitivity to rate shifts.
+
+\section{Forward Rates}
+Instantaneous forward:
+\(f(t) = \frac{\diff}{\diff T}\bigl(T \, r(T)\bigr)\big|_{T=t}\).
+
+\section*{Python Example: Spot vs Forward Rates}
+\begin{minted}{python}
+import pandas as pd, numpy as np
+times = np.array([0.5, 1, 2, 5])
+spot = np.array([0.02, 0.025, 0.03, 0.035])
+forward = np.diff(times * spot) / np.diff(times)
+pd.DataFrame({"T_start": times[:-1], "f": forward})
+\end{minted}
+
+\section*{Key Takeaways}
+\begin{enumerate}
+  \item Compounding convention matters for quoted yields.
+  \item DV01 and duration are linear approximations—convexity corrects curvature.
+\end{enumerate}

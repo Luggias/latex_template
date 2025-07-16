@@ -1,0 +1,35 @@
+\chapter{Risk Measurement}\label{ch:risk}
+
+\begin{abstract}
+We formalise Value‑at‑Risk, Expected Shortfall, stress testing, and
+scenario generation, emphasising implementation details relevant to
+options portfolios.
+\end{abstract}
+
+\section{Value‑at‑Risk (VaR)}
+
+\(\text{VaR}_{\alpha} = \inf\{x\mid \Pr(L \le x)\ge \alpha\}\).
+
+Historical, parametric (variance–covariance), and Monte Carlo approaches.
+
+\section{Expected Shortfall (ES)}
+
+\(\text{ES}_{\alpha} = \E[L \mid L > \text{VaR}_{\alpha}]\).
+
+Coherent; regulatory standard (FRTB).
+
+\section{Stress Testing}
+
+Design historical and hypothetical shocks (vol spike, correlation
+breakdown).  Full‑reval vs parametric approximations.
+
+\section{Back‑testing Framework}
+
+Coverage test:
+reject if number of VaR exceptions exceeds binomial bounds.
+
+\section*{Key Takeaways}
+\begin{itemize}
+  \item ES supersedes VaR for tail risk; implementation cost modest.
+  \item Back‑testing validates both data quality and model assumptions.
+\end{itemize}

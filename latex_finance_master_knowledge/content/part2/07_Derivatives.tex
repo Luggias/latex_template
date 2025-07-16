@@ -1,0 +1,52 @@
+\chapter{Introduction to Derivatives}\label{ch:derivintro}
+
+\begin{abstract}
+Derivatives transform the payoff profile of cash instruments, enabling
+leverage, hedging, and access to otherwise illiquid exposures.
+We introduce forwards, futures and swaps—the building blocks for options.
+\end{abstract}
+
+\section{Forwards}
+
+A forward contract fixes a purchase price \(K\) today for delivery at \(T\).
+No cash changes hands at inception.
+
+\subsection{Forward Pricing via Cost‑of‑Carry}
+
+\[
+F_{0,T} = S_0 e^{(r + u - q)T},
+\]
+with storage cost \(u\) and continuous dividend yield \(q\).
+
+\section{Futures}
+
+Exchange‑traded, daily‑settled analogues of forwards.
+
+\begin{definition}{Mark‑to‑Market}{}
+Gains/losses are credited to the margin account at each daily settlement
+price, eliminating counterparty credit exposure.
+\end{definition}
+
+\subsection{Convexity Adjustment}
+
+For interest‑rate futures the forward–futures difference is
+second‑order in rate volatility:
+\[
+F^{\text{fut}}_{0,T} - F^{\text{fwd}}_{0,T}
+      \approx \tfrac12 \sigma_r^2 T \bar P(T)^2 .
+\]
+
+\section{Swaps}
+
+\begin{itemize}
+  \item \textbf{Interest‑Rate Swap}: fixed vs floating coupons.
+  \item \textbf{Total‑Return Swap}: exchange of total return on an asset for funding plus spread.
+\end{itemize}
+
+Fixed‑rate leg is set so that PV(fixed) = PV(floating) \(\Rightarrow\) par swap rate.
+
+\section*{Key Takeaways}
+\begin{itemize}
+  \item Forwards lock in price, futures add daily cash‑flow path dependency.
+  \item Swaps are sequences of forwards; net present value at initiation is ~0.
+\end{itemize}

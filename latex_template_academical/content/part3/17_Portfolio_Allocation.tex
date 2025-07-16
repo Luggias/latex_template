@@ -1,0 +1,39 @@
+\chapter{Portfolio Management and Allocation}\label{ch:portfolio}
+
+\begin{abstract}
+We bridge option‑centric risk analytics with portfolio theory:
+CAPM, multi‑factor models, risk‑parity, and Kelly sizing.
+\end{abstract}
+
+\section{CAPM Refresher}
+
+\(E[R_i] = r_f + \beta_i(E[R_m]-r_f)\).
+
+\section{Factor Models}
+
+Fama–French 3‑/5‑factor, momentum, quality minus junk (QMJ).
+Estimation in Python:
+
+\begin{minted}{python}
+import pandas as pd, statsmodels.api as sm
+Y = asset_returns
+X = sm.add_constant(factor_returns)
+results = sm.OLS(Y, X).fit(cov_type='HAC', cov_kwds={'maxlags':5})
+\end{minted}
+
+\section{Risk‑Parity and Vol‑Target Portfolios}
+
+Allocate weights inversely to vol or marginal contribution to risk.
+
+\section{Kelly Criterion}
+
+Optimal growth weight:
+\(w^* = \Sigma^{-1}(\mu - r\mathbf 1)\).
+
+Discuss leverage constraints and drawdown risk.
+
+\section*{Key Takeaways}
+\begin{enumerate}
+  \item Allocation frameworks must integrate derivative Greeks for holistic risk.
+  \item Kelly optimality maximises long‑run growth but increases variance.
+\end{enumerate}

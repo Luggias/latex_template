@@ -1,0 +1,17 @@
+{
+    "Tcolorbox environment": {
+        "prefix": "bbox",
+        "body": [
+        "\\begin{tcolorbox}[",
+        "  colback=${1:white!10},",        // background color
+        "  colframe=${2:black},",          // frame color
+        "  title={${3:Title}},",           // box title
+        "  % caption={${4:Caption text}},",  // caption for float
+        "  % label={${5:box:label}}",        // internal label
+        "]",
+        "  $0",                            // content goes here
+        "\\end{tcolorbox}"
+        ],
+        "description": "Insert a tcolorbox with customizable colors, title, caption and label"
+    }
+}

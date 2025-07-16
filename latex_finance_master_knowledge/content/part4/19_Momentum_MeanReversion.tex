@@ -1,0 +1,39 @@
+\chapter{Momentum, Mean Reversion \& Statistical Arbitrage}\label{ch:mommean}
+
+\begin{abstract}
+We formalise two cornerstone factors—momentum and mean reversion—and
+demonstrate a simple pairs‐trade back‑test in Python.
+\end{abstract}
+
+\section{Cross‑Sectional Momentum}
+
+Return over look‑back \(L\): \(R_{t,L} = P_t/P_{t-L}-1\).  
+Long top decile, short bottom decile (Jegadeesh–Titman).
+
+\section{Mean Reversion in Spreads}
+
+Cointegration of pair \((X_t,Y_t)\):
+\(S_t = \ln X_t - \beta\ln Y_t\).  
+If \(S_t\) reverts to mean \(\mu\), design threshold entry.
+
+\subsection*{Python Snippet}
+
+\begin{minted}{python}
+import statsmodels.api as sm, numpy as np, pandas as pd
+beta = sm.OLS(np.log(X), sm.add_constant(np.log(Y))).fit().params[1]
+spread = np.log(X) - beta*np.log(Y)
+z = (spread - spread.mean())/spread.std()
+signals = (z > 2) * -1 + (z < -2) * 1
+\end{minted}
+
+\section{Risk Controls}
+
+Half‑life estimation for stop‐loss windows; market neutrality reduces
+beta risk but not residual correlation breakdown.
+
+\section*{Key Takeaways}
+
+\begin{itemize}
+  \item Factor premia persist but exhibit crowding and crash risk.
+  \item Robustness checks: out‑of‑sample decay, sub‐period consistency.
+\end{itemize}

@@ -1,0 +1,70 @@
+\chapter{Options 101}\label{ch:options101}
+
+\begin{abstract}
+Options grant asymmetric payoffs via the \emph{right} but not the
+obligation to transact.  We formalise terminology, payoff diagrams and
+no‑arbitrage relations that underpin later pricing models.
+\end{abstract}
+
+\section{Basic Definitions}
+
+\begin{description}
+  \item[Call] Right to buy the underlying at strike \(K\).
+  \item[Put]  Right to sell the underlying at strike \(K\).
+  \item[European] Exercisable only at maturity.
+  \item[American] Exercisable any time up to maturity.
+\end{description}
+
+\section{Payoff Diagrams}
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[axis lines=middle,xlabel={$S_T$},ylabel={Payoff},
+                 domain=0:200,samples=2]
+      \addplot[lw=1] {max(x-100,0)} node[pos=0.85,anchor=south east]{call};
+      \addplot[lw=1] {max(100-x,0)} node[pos=0.15,anchor=north west]{put};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{European call and put payoffs at maturity.}
+  \label{fig:callput}
+\end{figure}
+
+\section{Put–Call Parity}
+
+\[
+C - P = S_0 - K e^{-rT}.
+\]
+
+Immediate arbitrage if equality violated.
+
+\section{Moneyness and Delta Approximation}
+
+\begin{itemize}
+  \item \textbf{Moneyness} \(= S_0/K\).
+  \item \(\Delta_{\text{call}} \approx N(d_1)\) under Black–Scholes.
+\end{itemize}
+
+\section{Greeks Primer}
+
+Table \ref{tab:greeks} summarises first‑order sensitivities.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{@{}lcl@{}}
+  \toprule
+  Greek & Symbol & Interpretation \\\midrule
+  Delta & \(\Delta\) & \(\partial C/\partial S\) \\
+  Gamma & \(\Gamma\) & \(\partial^2 C/\partial S^2\) \\
+  Vega  & \(\nu\)    & \(\partial C/\partial \sigma\) \\
+  Theta & \(\Theta\) & \(\partial C/\partial t\) \\\bottomrule
+  \end{tabular}
+  \caption{Primary option Greeks.}
+  \label{tab:greeks}
+\end{table}
+
+\section*{Key Takeaways}
+\begin{enumerate}
+  \item Option structures synthesise non‑linear exposures from linear instruments.
+  \item Parity and monotonicity bounds are model‑free sanity checks.
+\end{enumerate}

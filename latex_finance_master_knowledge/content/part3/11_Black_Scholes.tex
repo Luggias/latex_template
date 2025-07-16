@@ -1,0 +1,73 @@
+\chapter{Derivation of the Black--Scholes Formula}\label{ch:bs}
+
+\begin{abstract}
+Black--Scholes remains the canonical closed‑form option‑pricing model.
+We present an arbitrage‑free derivation from first principles, examine
+assumptions, and provide Python code for numerical evaluation.
+\end{abstract}
+
+\section{Model Assumptions}
+
+\begin{enumerate}
+  \item Underlying follows geometric Brownian motion:
+        \(\diff S_t = \mu S_t \diff t + \sigma S_t \diff W_t\).
+  \item Constant risk‑free rate \(r\) and volatility \(\sigma\).
+  \item No dividends, taxes, or transaction costs (extend later).
+  \item Continuous trading and frictionless borrowing/lending.
+\end{enumerate}
+
+\section{PDE via Dynamic Hedging}
+
+Construct self‑financing portfolio
+\(\Pi = C - \Delta S\) with \(\Delta = \partial C/\partial S\).
+
+Ito’s Lemma \(\Rightarrow\)
+\[
+\diff C = \left(\partial_t C + \tfrac12 \sigma^2 S^2 \partial_{SS} C
+               + r S \partial_S C\right)\diff t + \sigma S \partial_S C \diff W_t .
+\]
+
+Choose \(\Delta = \partial_S C\) to eliminate the \( \diff W_t \) term; the
+hedged portfolio earns risk‑free \(r\Pi\).  Rearranging yields the
+Black--Scholes PDE:
+
+\[
+\partial_t C + \tfrac12 \sigma^2 S^2 \partial_{SS} C
+ + r S \partial_S C - r C = 0 .
+\]
+
+\section{Solution for a European Call}
+
+With terminal condition \(C(S,T)=\max(S-K,0)\):
+\[
+C(S_0,0) = S_0 N(d_1) - K e^{-rT} N(d_2),
+\]
+\[
+d_{1,2} = \frac{\ln(S_0/K) + (r \pm \tfrac12\sigma^2)T}{\sigma\sqrt{T}}.
+\]
+
+\subsection*{Python Implementation}
+
+\begin{minted}{python}
+import numpy as np
+from scipy.stats import norm
+
+def bs_call(S0, K, r, sigma, T):
+    d1 = (np.log(S0/K) + (r + 0.5*sigma**2)*T)/(sigma*np.sqrt(T))
+    d2 = d1 - sigma*np.sqrt(T)
+    return S0*norm.cdf(d1) - K*np.exp(-r*T)*norm.cdf(d2)
+\end{minted}
+
+\section{Critical Discussion}
+
+* **Volatility smile** contradicts constant-\(\sigma\) assumption.  
+* **Jump risk** and **stochastic rates** break log‑normality.  
+
+These shortcomings motivate Chapters~\ref{ch:stochvol}–\ref{ch:volsurface}.
+
+\section*{Key Takeaways}
+\begin{enumerate}
+  \item Black--Scholes arises from no‑arbitrage plus GBM dynamics.
+  \item Delta‑hedging arguments obviate investor risk preferences.
+  \item Calibration requires implied volatility, not historical.
+\end{enumerate}

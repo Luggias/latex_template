@@ -1,0 +1,54 @@
+\chapter{Numerical Option Pricing Methods}\label{ch:numerical}
+
+\begin{abstract}
+When closed‑form solutions are unavailable, numerical methods—
+trees, finite differences, Monte Carlo—step in.  We compare accuracy,
+speed, and implementation complexity.
+\end{abstract}
+
+\section{Binomial and Trinomial Trees}
+
+CRR parameters:
+\(u=e^{\sigma\sqrt{\Delta t}},\;
+ d=1/u,\;
+ p^* = \frac{e^{r\Delta t}-d}{u-d}\).
+
+\subsection{American Option Handling}
+
+Backwards induction with early‑exercise check:
+\(C_i^n = \max\bigl(\text{intrinsic}, e^{-r\Delta t}\E^* [C^{n+1}]\bigr)\).
+
+\section{Finite‑Difference Schemes for the BSM PDE}
+
+Implicit, explicit, and Crank–Nicolson grids.
+
+\begin{minted}{python}
+def crank_nicolson(M, N, Smax, K, r, sigma, T):
+    # M: price steps, N: time steps
+    ...
+\end{minted}
+
+\section{Monte Carlo Simulation}
+
+Risk‑neutral drift \(r\) gives unbiased estimator:
+
+\[
+C = e^{-rT} \frac1{N}\sum_{i=1}^N
+            \max\bigl(S_0 e^{(r-\sigma^2/2)T + \sigma\sqrt{T}Z_i}-K,0\bigr).
+\]
+
+Variance reduction: antithetic variates, control variates (delta hedge).
+
+\section*{Comparison Table}
+
+| Method | Dimension | American? | CPU Complexity |
+|--------|-----------|-----------|----------------|
+| Tree            | 1D | ✓ | \(O(N^2)\) |
+| Finite diff.    | 1–2D | ✓ | \(O(NM)\) |
+| Monte Carlo     | High‑D | ✗ (unless LSM) | \(O(NS)\) |
+
+\section*{Key Takeaways}
+\begin{itemize}
+  \item Choose method based on payoff path‑dependence and dimensionality.
+  \item Calibration workflow often mixes analytic and numeric pricers.
+\end{itemize}

@@ -1,0 +1,35 @@
+{
+    "Itemize environment": {
+        "prefix": "itemize",
+        "body": [
+        "\\begin{itemize}",
+        "  \\item ${1:}",
+        "\\end{itemize}"
+        ],
+        "description": "Itemize Block"
+	},
+	"Enumerate environment": {
+		"prefix": "enumerate",
+		"body": [
+		"\\begin{enumerate}",
+		"  \\item ${1:}",
+		"\\end{enumerate}"
+		],
+		"description": "Enumerate Block"
+	},
+    "Tcolorbox environment": {
+        "prefix": "bbox",
+        "body": [
+        "\\begin{tcolorbox}[",
+        "  colback=${1|white!10,yellow!20,green!10,blue!5|},",   
+        "  colframe=${2|black,blue!60!black,red!80!black,green!60!black|},",
+        "  title={${3:Title}},",
+        "  % caption={${4:Caption text}},",
+        "  % label={${5:box:label}}",
+        "]",
+        "  $0",
+        "\\end{tcolorbox}"
+        ],
+        "description": "Insert a tcolorbox with colour pickers, title, caption and label"
+    }
+}

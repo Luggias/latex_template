@@ -1,0 +1,38 @@
+\chapter{Volatility Surface Construction}\label{ch:volsurface}
+
+\begin{abstract}
+A smooth, arbitrage‑free volatility surface is fundamental for risk
+management and exotic pricing.  We cover parametrisations (SVI),
+interpolation schemes, and static arbitrage diagnostics.
+\end{abstract}
+
+\section{Market Data Cleaning}
+
+\begin{enumerate}
+  \item Remove crossed markets.
+  \item Convert quotes (delta, moneyness) to strikes.
+  \item Smooth bid‑ask midpoints before fitting.
+\end{enumerate}
+
+\section{SVI Parametrisation}
+
+Total implied variance \(w(k)\):
+\(w = a + b\bigl(\rho(k-m)+\sqrt{(k-m)^2+\sigma^2}\bigr)\).
+
+No‑butterfly & no‑calendar constraints enforce arbitrage‑free region.
+
+\section{Calibration Pipeline}
+
+Global–local routine:
+global differential‑evolution seed, then local L‑BFGS‑B.
+
+\section{Density Recovery}
+
+Breeden–Litzenberger:
+\(q(K) = e^{rT} \partial_{KK} C(K,T)\).
+
+\section*{Key Takeaways}
+\begin{enumerate}
+  \item Surface must satisfy calendar‑ and butterfly‑arbitrage constraints.
+  \item SVI dominates equity desks; natural extensions exist for rates.
+\end{enumerate}

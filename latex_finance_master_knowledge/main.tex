@@ -1,0 +1,118 @@
+% !TeX TXS-program:pdflatex
+\documentclass[a4paper, titlepage]{article} % Sets the document class to "article", optimized for short documents like essays or reports.
+                                            % Options:
+                                            % - a4paper: sets the paper size to A4 (210mm × 297mm)
+                                            % - titlepage: places the title, author, and date on a separate page
+
+% ---------------------------------------------------------------
+%                  --------- Preamble ---------
+% ---------------------------------------------------------------
+\input{preamble}
+
+% ---------------------------------------------------------------
+%              --------- Header and Footer ---------
+% ---------------------------------------------------------------
+
+\pagestyle{fancy} % Required for header and footer
+\fancyfoot[C]{}  % Removes automatically generated cenetered page numbering
+\lhead{\thetitle} % Set left-header to the document title
+\lfoot{\theauthor} % Set left-footer to the author name
+\rfoot{\thepage} % Insert page number to the right-footer
+\renewcommand{\footrulewidth}{0.4pt}  % Set footer line (has same width as header)
+
+% ---------------------------------------------------------------
+%                   --------- Meta ---------
+% ---------------------------------------------------------------
+\title{Trading Handbook\\\large Foundations to Algorithmic Implementation}
+\author{Lukas Maximilian Kapferer}
+\date{\today}
+
+\addbibresource{biblio/trading.bib}
+
+\begin{document}
+\frontmatter
+
+\begin{titlepage}
+    \centering
+    \vspace*{3cm}
+    {\LARGE \textbf{\thetitle} \par}
+    \vspace{2cm}
+    {\large \protect\theauthor\par}
+    \vspace{0.5cm}
+    \small
+    \texttt{\href{mailto:lukas@kapferer.or.at}{lukas@kapferer.or.at}}\\
+    \texttt{\href{https://www.linkedin.com/in/lukas-kapferer}{linkedin.com/in/lukas-kapferer}}\\
+    +43 677 61 44 27 44\\
+    A-6020 Innsbruck \par
+    \vspace{0.5cm}
+    Version from \texttt{\today}
+\end{titlepage}
+
+\tableofcontents
+\chapter*{Overview}
+\listoffigures  % Check for relevance, doubles, define order and then add descriptive comment
+\listoftables   % Check for relevance, doubles, define order and then add descriptive comment
+\printglossary[type=\acronymtype,title={List of Abbreviations}] % Check for relevance, doubles, define order and then add descriptive comment
+\printglossary[title={Glossary of Terms}]                       % Check for relevance, doubles, define order and then add descriptive comment
+
+% ---------------------------------------------------------------
+%                   --------- Content ---------
+% ---------------------------------------------------------------
+\mainmatter
+
+% ---------- Part I ----------
+\part{Foundations of Financial Markets}\label{part:foundations}
+\include{chapters/part1/01_Market_Microstructure}
+\include{chapters/part1/02_Asset_Classes}
+\include{chapters/part1/03_Time_Value}
+\include{chapters/part1/04_Stat_Refresher}
+\include{chapters/part1/05_Stochastic_Processes}
+
+% ---------- Part II ----------
+\part{Financial Instruments \& Their Payoffs}\label{part:instruments}
+\include{content/part2/06_Cash_Instruments}
+\include{content/part2/07_Derivatives_Intro}
+\include{content/part2/08_Options_101}
+\include{content/part2/09_Exotic_Options}
+\include{content/part2/10_Volatility_Products}
+
+% ---------- Part III ----------
+\part{Option Pricing \& Risk Management}\label{part:pricing}
+\include{content/part3/11_Black_Scholes}
+\include{content/part3/12_Greeks}
+\include{content/part3/13_Numerical_Methods}
+\include{content/part3/14_Stoch_Vol_Jump}
+\include{content/part3/15_Vol_Surface}
+\include{content/part3/16_Risk_Measurement}
+\include{content/part3/17_Portfolio_Allocation}
+
+% ---------- Part IV ----------
+\part{Trading Strategies \& Execution}\label{part:strategies}
+\include{content/part4/18_Discretionary_Systematic}
+\include{content/part4/19_Momentum_MeanReversion}
+\include{content/part4/20_Options_Strategies}
+\include{content/part4/21_Event_Driven_Macro}
+\include{content/part4/22_HFT_Concepts}
+\include{content/part4/23_Behavioral_Biases}
+
+% ---------- Part V ----------
+\part{Trading Infrastructure \& Algorithmic Implementation}\label{part:infra}
+\include{content/part5/24_Order_Routing}
+\include{content/part5/25_Data_Engineering}
+\include{content/part5/26_Backtesting_Architecture}
+\include{content/part5/27_Execution_Algorithms}
+\include{content/part5/28_Machine_Learning}
+\include{content/part5/29_Risk_Performance_Dashboards}
+
+% ---------- Part VI ----------
+\part{Governance, Regulation \& Ethics}\label{part:governance}
+\include{content/part6/30_Regulatory_Landscape}
+\include{content/part6/31_Compliance_Programs}
+\include{content/part6/32_Operational_Risk}
+\include{content/part6/33_Ethical_Considerations}
+
+% (Add new \part{} statements for Parts II–VI later)
+
+\backmatter
+\printbibliography % Check for relevance, doubles, define order and then add descriptive comment
+\end{document}
