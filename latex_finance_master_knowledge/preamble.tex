@@ -11,9 +11,19 @@
 \usepackage[acronym]{glossaries}
 \usepackage{geometry}    % Customize page margings and layout
 \usepackage{graphicx}    % Allows image inclusion with \includegraphics{}
-\usepackage{tcolorbox}   % For boxes
-\usepackage{tcolorbox}   % Adjust
+\usepackage[most]{tcolorbox}   % For boxes
 \tcbuselibrary{skins}    % Check for relevance, doubles, define order and then add descriptive comment
+\usepackage{titling}
+
+\usepackage{siunitx}
+\newtcbtheorem[number within=chapter]{definition}{Definition}%
+  {colback=blue!5,colframe=blue!60!black, fonttitle=\bfseries}{def}
+
+\newtcbtheorem[number within=chapter]{example}{Example}%
+  {colback=yellow!10,colframe=orange!80!black, fonttitle=\bfseries}{ex}             
+
+\newtcbtheorem[number within=chapter]{abstract}{Abstract}%
+  {colback=yellow!10,colframe=orange!80!black, fonttitle=\bfseries}{ex}             
 
 % define two (or more) box‐styles once:
 \tcbset{

@@ -1,0 +1,178 @@
+// Place your key bindings in this file to override the defaults
+[
+
+    {
+        "key": "cmd+b",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\textbf{${TM_SELECTED_TEXT}$0}"
+        }
+    },
+        {
+        "key": "ctrl+b",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\textbf{${TM_SELECTED_TEXT}$0}"
+        }
+    },
+    
+    {
+        "key": "cmd+i",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\textit{${TM_SELECTED_TEXT}$0}"
+        }
+    },
+    {
+        "key": "ctrl+i",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\textit{${TM_SELECTED_TEXT}$0}"
+        }
+    },
+
+    {
+        "key": "cmd+u",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\underline{${TM_SELECTED_TEXT}$0}"
+        }
+    },
+    {
+        "key": "ctrl+u",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\underline{${TM_SELECTED_TEXT}$0}"
+        }
+    },
+
+    {
+        "key": "cmd+r",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "$\\rightarrow$"
+        }
+    },
+    {
+        "key": "ctrl+r",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "$\\rightarrow$"
+        }
+    },
+    // Custom keybinding for LaTeX \section{}
+    {
+        "key": "cmd+1",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\section{${TM_SELECTED_TEXT}}$0"
+        }
+    },
+    {
+        "key": "ctrl+1",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\section{${TM_SELECTED_TEXT}}$0"
+        }
+    },
+    // Custom keybinding for LaTeX \subsection{}
+    {
+        "key": "cmd+2",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\subsection{${TM_SELECTED_TEXT}}$0"
+        }
+    },
+    {
+        "key": "ctrl+2",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\subsection{${TM_SELECTED_TEXT}}$0"
+        }
+    },
+    // Custom keybinding for LaTeX \subsubsection{}
+    {
+        "key": "cmd+3",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\subsubsection{${TM_SELECTED_TEXT}}$0"
+        }
+    },
+    {
+        "key": "ctrl+3",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\subsubsection{${TM_SELECTED_TEXT}}$0"
+        }
+    },
+    // Custom keybinding for LaTeX \subsubsubsection{}
+    {
+        "key": "cmd+4",
+        "command": "type",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "text": "\\subsubsubsection{}"
+    }
+    },
+    {
+        "key": "ctrl+4",
+        "command": "type",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "text": "\\subsubsubsection{}"
+    }
+    },
+    // Custom keybinding for LaTeX Workshop build command
+    {
+        "key": "cmd+enter",
+        "command": "latex-workshop.build",
+        "when": "editorTextFocus && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "latex-workshop.build",
+        "when": "editorTextFocus && editorLangId == 'latex'"
+    },
+    {
+        "key": "cmd+y",
+        "command": "redo"
+    },
+    {
+        "key": "shift+cmd+z",
+        "command": "-redo"
+    },
+    {
+        // Custom keybinding for LaTeX \enquote{...}
+        "key": "cmd+e",
+
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\enquote{${TM_SELECTED_TEXT}}$0"
+        }
+    },
+    {
+        // Custom keybinding for LaTeX \enquote{...}
+        "key": "ctrl+e",
+
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus && editorLangId == 'latex'",
+        "args": {
+            "snippet": "\\enquote{${TM_SELECTED_TEXT}}$0"
+        }
+    }
+]

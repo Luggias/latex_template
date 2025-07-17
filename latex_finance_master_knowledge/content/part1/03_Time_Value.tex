@@ -13,16 +13,18 @@ Bootstrapping derives zero rates from coupon‑bearing bonds.
 
 \subsection{Duration and Convexity}
 \[
-D = -\frac{1}{P}\
-frac{\diff P}{\diff y},\quad
-C = \frac{1}{P}\frac{\diff^2 P}{\diff y^2}.
+D = -\frac{1}{P}\frac{\mathrm{d}P}{\mathrm{d}y},
+\quad
+C = \frac{1}{P}\frac{\mathrm{d}^{2}P}{\mathrm{d}y^{2}}.
 \]
 
 These measure first‑ and second‑order sensitivity to rate shifts.
 
 \section{Forward Rates}
 Instantaneous forward:
-\(f(t) = \frac{\diff}{\diff T}\bigl(T \, r(T)\bigr)\big|_{T=t}\).
+\[
+f(t) = \frac{\mathrm{d}}{\mathrm{d}T}\bigl(T\,r(T)\bigr)\right|_{T=t}
+\]
 
 \section*{Python Example: Spot vs Forward Rates}
 \begin{minted}{python}
