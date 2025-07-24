@@ -24,7 +24,6 @@
 %   right=2cm}
 % --- LANGUAGE & QUOTES ---
 \RequirePackage[ngerman, english]{babel} % Supports German and English text
-\RequirePackage{csquotes}    % Provides context-aware quotation commands like \enquote{}, supporting language-specific quotation styles
 % --- TABLES & TOC ---
 \RequirePackage{booktabs}    % Enhances table quality by providing professional-looking horizontal rules (e.g., \toprule, \midrule, \bottomrule)
 \RequirePackage{tocloft}     % Custom TOC formatting
@@ -44,46 +43,49 @@
 % --- HEADER/FOOTER ---
 \RequirePackage{fancyhdr} % Customize headers and footers
 % --- HYPERLINKS & PDF METADATA ---
-\RequirePackage{hyperref}    % Adds clickable hyperlinks and table of contents links
-\hypersetup{                 % Adjust and add comment
-  colorlinks=true,           % Färbt Links statt sie zu umrahmen
-  linkcolor=black,           % Inhaltsverzeichnis, interne Links
-  citecolor=black,           % Literaturverweise
-  filecolor=black,           % Verweise auf lokale Dateien
-  urlcolor=black,            % Externe URLs/Mailadressen
-  pdfauthor={Lukas Maximilian Kapferer}, % Project specific
-  pdftitle={LaTeX Template}, % Project specific
-  pdfsubject={},
-  pdfkeywords={},
-  pdfcreator={LaTeX (latexmk, VS Code, mystyle.sty v1.1)},
-  bookmarksnumbered=true,    % Nummerierung in den Bookmarks
-  bookmarksopen=true,        % Inhaltsverzeichnis geöffnet
-  pdfstartview=FitH,         % Erste Seite „Fit width“
-  breaklinks=true,           % Links umbrechbar
+\RequirePackage{hyperref}    % Enable clickable hyperlinks and TOC links
+\hypersetup{                 % Global configuration for hyperref
+  colorlinks=true,           % Color link text instead of drawing boxes around links
+  linkcolor=black,           % Color for internal links (TOC, cross-references)
+  citecolor=black,           % Color for citation links
+  filecolor=black,           % Color for local file links
+  urlcolor=black,            % Color for external URLs and email addresses
+  pdfauthor={Lukas Maximilian Kapferer}, % PDF metadata: author
+  pdftitle={LaTeX Template}, % PDF metadata: title
+  pdfsubject={},             % PDF metadata: subject
+  pdfkeywords={},            % PDF metadata: keywords (comma-separated)
+  pdfcreator={LaTeX (latexmk, VS Code, mystyle.sty v1.1)},  % PDF metadata: creator/producer
+  bookmarksnumbered=true,    % Include section numbers in PDF bookmarks
+  bookmarksopen=true,        % Open the bookmark tree by default
+  pdfstartview=FitH,         % Start with the page width fitted to the window
+  breaklinks=true,           % Allow line breaks in long links
 }
-\RequirePackage{bookmark}    % Check for relevance, doubles, define order and then add descriptive comment
+\RequirePackage{bookmark}    % Faster, cleaner PDF bookmarks than hyperref’s default; avoids duplicates and lets you control levels/order
 % --- CODE ENVIRONMENTS ---
-\RequirePackage{minted}      % Check for relevance, doubles, define order and then add descriptive comment
-\usemintedstyle{github-dark}      % Check for relevance, doubles, define order and then add descriptive comment
+\RequirePackage{minted}      % Pygments-based code highlighting (requires `-shell-escape` and a working `pygmentize`)
+\usemintedstyle{gruvbox-light}      % Set the global Pygments color scheme for all minted listings
 % --- BOXES & CUSTOM ENVIRONMENTS ---
-\RequirePackage[most]{tcolorbox}  % Colored and framed boxes
+\RequirePackage[most]{tcolorbox}    % Colored and framed boxes
 % --- TITLE & TITLEPAGE ---
-\RequirePackage{titling}     %  Customize the title page and title formatting
+\RequirePackage{csquotes}    % Provides context-aware quotation commands like \enquote{}, supporting language-specific quotation styles
+\RequirePackage{titling}     % Customize the title page and title formatting
 % --- PATCHING COMMANDS ---
 \RequirePackage{listings}    % Enables source code display with syntax highlighting
 \setlength{\parindent}{0pt}  % Disables paragraph indentation
 % --- SCIENTIFIC UNITS (siunitx) ---
 \RequirePackage{siunitx}      % Consistent typesetting of units and numbers
 \sisetup{
-  detect-all,                 % Detect surrounding font style
-  group-separator = {\,},     % Thin space as thousand separator
-  group-minimum-digits = 4,   % Start grouping at 4 digits
-  per-mode=symbol,            % Use '/' for units
-  output-decimal-marker = {.} % Always use '.' for decimals
-  locale=EN                   % English formatting
+    locale=DE,                  % German formatting
+    detect-all,                 % Detect surrounding font style
+    per-mode = fraction,        % m * s^{-1} -> m/s
+    group-separator = {\,},     % Thin space as thousand separator
+    group-minimum-digits = 4,   % Start grouping at 4 digits
+    per-mode=symbol,            % Use '/' for units
+    output-decimal-marker = {.} % Always use '.' for decimals
 }
 % --- BIBLIOGRAPHY MANAGEMENT ---
-\RequirePackage[backend=biber,style=apa,sorting=nyt]{biblatex} % Unified citation and bibliography style
+% \RequirePackage[backend=biber,style=apa,sorting=nyt]{biblatex} % Unified citation and bibliography style
+% \addbibresource{content/literaturverzeichnis.bib}
 % --- SMART REFERENCES (cleveref) ---
 \RequirePackage[capitalise]{cleveref} % Automatic, intelligent cross-references
 % Now \cref{eq:foo} outputs "Equation (1)" automatically.
@@ -93,7 +95,7 @@
 % -------------------- Style setup for boxes --------------------
 % ---------------------------------------------------------------
 \tcbset{
-  commonbox/.style={
+  cosmmonbox/.style={
     enhanced,
     boxrule=1pt,
     arc=4pt,
@@ -158,6 +160,10 @@
 \newcommand{\l@subsubsubsection}{\@dottedtocline{4}{7em}{4em}} % indentation and formatting in TOC
 \makeatother
 \newcommand*{\code}{\lstinline[basicstyle=\color{codeblue}\ttfamily, breaklines=true]}
+
+\makeatletter
+\def\toclevel@subsubsubsection{4}
+\makeatother
 
 % ---------------------------------------------------------------
 % ---------- Section redefinition to force page break -----------

@@ -136,17 +136,6 @@
             "text": "\\subsubsubsection{}"
     }
     },
-    // Custom keybinding for LaTeX Workshop build command
-    {
-        "key": "cmd+enter",
-        "command": "latex-workshop.build",
-        "when": "editorTextFocus && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+enter",
-        "command": "latex-workshop.build",
-        "when": "editorTextFocus && editorLangId == 'latex'"
-    },
     {
         "key": "cmd+y",
         "command": "redo"

@@ -1,17 +1,45 @@
 {
-    "Tcolorbox environment": {
-        "prefix": "bbox",
-        "body": [
-        "\\begin{tcolorbox}[",
-        "  colback=${1:white!10},",        // background color
-        "  colframe=${2:black},",          // frame color
-        "  title={${3:Title}},",           // box title
-        "  % caption={${4:Caption text}},",  // caption for float
-        "  % label={${5:box:label}}",        // internal label
-        "]",
-        "  $0",                            // content goes here
-        "\\end{tcolorbox}"
-        ],
-        "description": "Insert a tcolorbox with customizable colors, title, caption and label"
-    }
+  "latex-workshop.view.pdf.viewer": "tab",
+  "files.autoSave": "onFocusChange",
+  "latex-workshop.latex.autoBuild.run": "onSave",                  // onFileChange is sometimes too agressive
+  "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": true,
+  "latex-workshop.linting.chktex.enabled": true,
+  "latex-workshop.linting.chktex.exec.path": "/Library/TeX/texbin/chktex",
+
+"latex-workshop.latex.tools": [
+  {
+    "name": "latexmk (shell-escape)",
+    "command": "latexmk",
+    "args": [
+      "-pdf",
+      "-shell-escape",
+      "-interaction=nonstopmode",
+      "-file-line-error",
+      "-synctex=1",
+      "%DOC%"
+    ]
+  },
+  {
+    "name": "latexmk (clean)",
+    "command": "latexmk",
+    "args": [
+      "-c",
+      "%DOC%"
+    ]
+  }
+],
+
+"latex-workshop.latex.recipes": [
+  {
+    "name": "build → clean",
+    "tools": ["latexmk (shell-escape)", "latexmk (clean)"]
+  },
+  { "name": "only build", "tools": ["latexmk (shell-escape)"] },
+  { "name": "only clean", "tools": ["latexmk (clean)"] }
+],
+
+"latex-workshop.latex.recipe.default": "build → clean",
+"files.exclude": {
+    "**/_minted*": true
+  }
 }

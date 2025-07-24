@@ -22,9 +22,9 @@
 \subsection{Tables}
 
 
-\begin{table}[h!]
+\begin{table}[ht]
   \centering
-  \begin{tabular}{|l|c|r|}
+  \begin{tabular} {|l|c|r|}
     \hline
     Header 1 & Header 2 & Header 3 \\
     \hline
@@ -43,7 +43,7 @@
 \section{Code IDE}
 \subsection{Java}
 Dies ist ein \code|Java| code.
-\begin{java}[caption={Eine verbesserte Darstellung der Java-Klasse `Stock`.}]
+\begin{java}
 public class Stock {
     private String symbol;
     private double sharePrice;
@@ -59,7 +59,7 @@ public class Stock {
 }
 \end{java}
 \subsection{Python}
-\begin{python}[caption={Ein einfaches Beispiel für eine Python-Klasse.}]
+\begin{python}
     class DataAnalyzer:
     def __init__(self, data_points):
         self.data_points = data_points
@@ -118,7 +118,7 @@ print(f"The average is: {avg}")
 
 \begin{table}[h!]
   \centering
-  \begin{tabular}{|l|c|r|} 
+  \begin{tabular} {|l|c|r|} 
     \hline
     Header1 & Header2 & Header3 \\
     \hline
@@ -189,3 +189,13 @@ def bs_call(S0, K, r, sigma, T):
     d2 = d1 - sigma*np.sqrt(T)
     return S0*norm.cdf(d1) - K*np.exp(-r*T)*norm.cdf(d2)
 \end{minted}
+
+\begin{tcolorbox}[
+  colback=blue!20,
+  colframe=blue!60,
+  title={Title},
+  % caption={Caption text},
+  % label={box:label}
+]
+  
+\end{tcolorbox}
