@@ -57,7 +57,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "$\\rightarrow$"
+            "snippet": "\\(\\rightarrow\\)"
         }
     },
     {
@@ -65,7 +65,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "$\\rightarrow$"
+            "snippet": "\\(\\rightarrow\\)"
         }
     },
     // Custom keybinding for LaTeX \section{}
