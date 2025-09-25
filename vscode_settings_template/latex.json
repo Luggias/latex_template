@@ -20,18 +20,18 @@
 	"Java code block": {
 		"prefix": "java",
 		"body": [
-		"\\begin{lstlisting}[style=javastyle]",
+		"\\begin{java}",
 		"$1",
-		"\\end{lstlisting}"
+		"\\end{java}"
 		],
 		"description": "Java code block using listings package"
 	},
 	"Python code block": {
 		"prefix": "python",
 		"body": [
-			"\\begin{lstlisting}[style=pythonstyle]",
+			"\\begin{python}",
 			"$1",
-			"\\end{lstlisting}"
+			"\\end{python}"
 		],
 		"description": "Python code block using listings package"
 	},
