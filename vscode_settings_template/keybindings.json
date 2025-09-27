@@ -6,7 +6,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\textbf{${TM_SELECTED_TEXT}$0}"
+            "snippet": "\\textbf{${1:${TM_SELECTED_TEXT}}}$0"
         }
     },
         {
@@ -14,7 +14,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\textbf{${TM_SELECTED_TEXT}$0}"
+            "snippet": "\\textbf{${1:${TM_SELECTED_TEXT}}}$0"
         }
     },
     
@@ -23,7 +23,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\textit{${TM_SELECTED_TEXT}$0}"
+            "snippet": "\\textit{${1:${TM_SELECTED_TEXT}}}$0"
         }
     },
     {
@@ -31,7 +31,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\textit{${TM_SELECTED_TEXT}$0}"
+            "snippet": "\\textit{${1:${TM_SELECTED_TEXT}}}$0"
         }
     },
 
@@ -40,7 +40,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\underline{${TM_SELECTED_TEXT}$0}"
+            "snippet": "\\underline{${1:${TM_SELECTED_TEXT}}}$0"
         }
     },
     {
@@ -48,7 +48,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\underline{${TM_SELECTED_TEXT}$0}"
+            "snippet": "\\underline{${1:${TM_SELECTED_TEXT}}}$0"
         }
     },
 
