@@ -27,6 +27,7 @@
 % --- TABLES & TOC ---
 \RequirePackage{booktabs}    % Enhances table quality by providing professional-looking horizontal rules (e.g., \toprule, \midrule, \bottomrule)
 \RequirePackage{tocloft}     % Custom TOC formatting
+  % optional (removing spacing from table-columns -> table is automatically aligned to textwidth on left and right border): \setlength{\tabcolsep}{0pt}
 % --- MATHEMATICS ---
 \RequirePackage{amsfonts}    % Provides additional maths fonts
 \RequirePackage{amsmath}     % Enhances mathematical typesetting
@@ -154,9 +155,11 @@
 
 % Define the new command \subsubsubsection with TOC entry and formatting
 \newcommand\subsubsubsection[1]{
+  \addvspace{3.25ex}                                                                   % spacing before (matching subsubsection)
   \par\refstepcounter{subsubsubsection}                                                % increase counter and make it referencable
   \addcontentsline{toc}{subsubsubsection}{\protect\numberline{\thesubsubsubsection}#1} % add to table of contents
-  \textbf{\thesubsubsubsection\quad #1}\par\nobreak\vspace{0\baselineskip}           % bold heading + spacing
+  {\noindent\textbf{\thesubsubsubsection\quad #1}}\par\nobreak                         % bold heading
+  \addvspace{1.5ex}                                                                    % spacing after (matching subsubsection)
 }
 
 % Enable 4th-level headings in the table of contents

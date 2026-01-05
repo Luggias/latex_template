@@ -74,7 +74,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\section{${TM_SELECTED_TEXT:$1}}$0"
+            "snippet": "\\section{${TM_SELECTED_TEXT:$1}}\n$0"
         }
     },
     {
@@ -82,7 +82,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\section{${TM_SELECTED_TEXT:$1}}$0"
+            "snippet": "\\section{${TM_SELECTED_TEXT:$1}}\n$0"
         }
     },
     // Custom keybinding for LaTeX \subsection{}
@@ -91,7 +91,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\subsection{${TM_SELECTED_TEXT:$1}}$0"
+            "snippet": "\\subsection{${TM_SELECTED_TEXT:$1}}\n$0"
         }
     },
         {
@@ -99,7 +99,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\subsection{${TM_SELECTED_TEXT:$1}}$0"
+            "snippet": "\\subsection{${TM_SELECTED_TEXT:$1}}\n$0"
         }
     },
     // Custom keybinding for LaTeX \subsubsection{}
@@ -108,7 +108,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\subsubsection{${TM_SELECTED_TEXT:$1}}$0"
+            "snippet": "\\subsubsection{${TM_SELECTED_TEXT:$1}}\n$0"
         }
     },
     {
@@ -116,7 +116,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\subsubsection{${TM_SELECTED_TEXT:$1}}$0"
+            "snippet": "\\subsubsection{${TM_SELECTED_TEXT:$1}}\n$0"
         }
     },
     // Custom keybinding for LaTeX \subsubsubsection{}
@@ -125,7 +125,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\subsubsubsection{${TM_SELECTED_TEXT:$1}}$0"
+            "snippet": "\\subsubsubsection{${TM_SELECTED_TEXT:$1}}\n$0"
         }
     },
     {
@@ -133,7 +133,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\subsubsubsection{${TM_SELECTED_TEXT:$1}}$0"
+            "snippet": "\\subsubsubsection{${TM_SELECTED_TEXT:$1}}\n$0"
         }
     },
     {
@@ -151,7 +151,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\enquote{${TM_SELECTED_TEXT}}$0"
+            "snippet": "\\enquote{${TM_SELECTED_TEXT:$1}}$0"
         }
     },
     {
@@ -161,7 +161,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\enquote{${TM_SELECTED_TEXT}}$0"
+            "snippet": "\\enquote{${TM_SELECTED_TEXT:$1}}$0"
         }
     }
 ]
