@@ -4,7 +4,7 @@
 		"body": [
 		"\\begin{itemize}",
 		"  \\item $1",
-		"\\end{itemize}"
+		"\\end{itemize}\n\n$0"
 		],
 		"description": "Bullet Point List"
 	},
@@ -13,7 +13,7 @@
 		"body": [
 		"\\begin{enumerate}",
 		"  \\item $1",
-		"\\end{enumerate}"
+		"\\end{enumerate}\n\n$0"
 		],
 		"description": "Numbered List"
 	},
@@ -21,8 +21,8 @@
 		"prefix": "java",
 		"body": [
 		"\\begin{java}",
-		"$1",
-		"\\end{java}"
+		"\t$1",
+		"\\end{java}\n\n$0"
 		],
 		"description": "Java code block using listings package"
 	},
@@ -30,8 +30,8 @@
 		"prefix": "python",
 		"body": [
 			"\\begin{python}",
-			"$1",
-			"\\end{python}"
+			"\t$1",
+			"\\end{python}\n\n$0"
 		],
 		"description": "Python code block using listings package"
 	},
@@ -40,16 +40,18 @@
 		"body": [
 			"\\begin{table}[ht]",
 			"  \\centering",
-			"  \\begin{tabular} {p{0.2\textwidth} p{0.6\textwidth} p{0.2\textwidth}}",
+			"  \\begin{tabular} {p{0.2\\textwidth} p{0.6\\textwidth} p{0.2\\textwidth}}",
 			"    \\toprule",
-			"    Header1 & Header2 & Header3 \\\\\\\\",
+			"    \\textbf{${1:Header1}} & \\textbf{${2:Header2}} & \\textbf{${3:Header3}} \\\\\\\\",
 			"    \\midrule",
-			"    Row1Col1 & Row1Col2 & Row1Col3 \\\\\\\\",
+			"    ${4:Row1Col1} & ${5:Row1Col2} & ${6:Row1Col3} \\\\\\\\",
+			"    ${7:Row2Col1} & ${8:Row2Col2} & ${9:Row2Col3} \\\\\\\\",
+			"    ${10:Row3Col1} & ${11:Row3Col2} & ${12:Row3Col3} \\\\\\\\",
 			"    \\bottomrule",
 			"  \\end{tabular}",
-			"  % caption{$1}",
-			"  % label{tab:$2}",
-			"\\end{table}"
+			"  % caption{$13}",
+			"  % label{tab:$14}",
+			"\\end{table}\n\n$0"
 		],
 		"description": "Table with 3 columns, caption and label"
 	},
@@ -58,10 +60,10 @@
 		"body": [
 			"\\begin{figure}[H]",
 			"  \\centering",
-			"  \\includegraphics[width=0.6\\linewidth]{fig/${1:image.png}}",
-			"  % caption{${2:Bildbeschreibung}}",
-			"  % label{fig:${3:label}}",
-			"\\end{figure}"
+			"  \\includegraphics[width=${1:0.6}\\linewidth]{fig/${2:image.png}}",
+			"  % caption{${3:Bildbeschreibung}}",
+			"  % label{fig:${4:label}}",
+			"\\end{figure}\n\n$0"
 		],
 		"description": "Inserts an image with caption and label"
 	},
@@ -72,21 +74,22 @@
 		],
 		"description": "Inserts \\code|...| for Inline-Code"
 	},
-	"Insert horizontal rule with spacing": {
-		"prefix": "lline",
-		"body": [
-			"\\vspace{0.4cm}",
-			"\\hrule",
-			"\\vspace{0.4cm}"
-		],
-		"description": "Insert a horizontal rule with vertical spacing"
-	},
-	"Monospaced text (\\texttt{})": {
+		"Monospaced text (\\texttt{})": {
 		"prefix": "ttext",
 		"body": [
 			"\\texttt{$1}"
 		],
 		"description": "Insert \\texttt{} for monospaced text with cursor inside"
+	},
+	"Insert horizontal rule with spacing": {
+		"prefix": "lline",
+		"body": [
+			"\\vspace{${1:0.4cm}}",
+			"\\hrule",
+			"\\vspace{${2:0.4cm}}",
+			"\n$0"
+		],
+		"description": "Insert a horizontal rule with vertical spacing"
 	},
 	"Tcolorbox environment": {
         "prefix": "bbox",
@@ -98,44 +101,67 @@
         "  % caption={${4:Caption text}},",
         "  % label={${5:box:label}}",
         "]",
-        "  $0",
-        "\\end{tcolorbox}"
+        "\t$6",
+        "\\end{tcolorbox}\n\n$0"
         ],
         "description": "Insert a tcolorbox with colour pickers, title, caption and label"
     },
 	"Create vertical line spacing 0.2cm": {
 		"prefix": "vspace-0.2",
 		"body": [
-		"\\vspace{${1:0.2}cm}$0"
+		"\\vspace{${1:0.2}cm}\n$0"
 		],
 		"description": "Insert vertical space with a default of 0.2cm"
 	},
 	"Create vertical line spacing 0.5cm": {
 		"prefix": "vspace-0.5",
 		"body": [
-		"\\vspace{${1:0.5}cm}$0"
+		"\\vspace{${1:0.5}cm}\n$0"
 		],
 		"description": "Insert vertical space with a default of 0.5cm"
 	},
 	"Create vertical line spacing 1cm": {
 		"prefix": "vspace-1",
 		"body": [
-		"\\vspace{${1:1}cm}$0"
+		"\\vspace{${1:1}cm}\n$0"
 		],
 		"description": "Insert vertical space with a default of 1cm"
 	},
 	"Create vertical line spacing 1.5cm": {
 		"prefix": "vspace-1.5",
 		"body": [
-		"\\vspace{${1:1.5}cm}$0"
+		"\\vspace{${1:1.5}cm}\n$0"
 		],
 		"description": "Insert vertical space with a default of 1.5cm"
 	},
 	"Create vertical line spacing 2cm": {
 		"prefix": "vspace-2",
 		"body": [
-		"\\vspace{${1:2}cm}$0"
+		"\\vspace{${1:2}cm}\n$0"
 		],
 		"description": "Insert vertical space with a default of 2cm"
+	},
+	"Create Minipage": {
+    "prefix": "minipage",
+    "body": [
+        "\\begin{minipage}{${1:0.49}\\textwidth}",
+        "\t$2",
+        "\\end{minipage}\n\n$0"
+    ],
+    "description": "Inserts a minipage environment with adjustable width"
+	},
+	"Side-by-Side Minipages": {
+    "prefix": "miniside",
+    "body": [
+        "\\begin{minipage}{${1:0.49}\\textwidth}",
+        "\t$2",
+        "\\end{minipage}",
+        "\\hfill",
+        "\\begin{minipage}{${3:0.49}\\textwidth}",
+        "\t$4",
+        "\\end{minipage}",
+        "\n$0"
+    ],
+    "description": "Two minipages side-by-side with horizontal fill"
 	}
 }
