@@ -57,7 +57,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\(\\rightarrow\\)"
+            "snippet": "\\(\\rightarrow\\) "
         }
     },
     {
@@ -65,7 +65,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\(\\rightarrow\\)"
+            "snippet": "\\(\\rightarrow\\) "
         }
     },
     // Custom keybinding for LaTeX \section{}
@@ -74,7 +74,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\section{${TM_SELECTED_TEXT:$1}}\n$0"
+            "snippet": "% -------------------------------------------------- \n%              ------------------------             \n% -------------------------------------------------- \n\\section{${TM_SELECTED_TEXT:$1}}\n$0"
         }
     },
     {
@@ -82,7 +82,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == 'latex'",
         "args": {
-            "snippet": "\\section{${TM_SELECTED_TEXT:$1}}\n$0"
+            "snippet": "% -------------------------------------------------- \n%              ------------------------             \n% -------------------------------------------------- \n\\section{${TM_SELECTED_TEXT:$1}}\n$0"
         }
     },
     // Custom keybinding for LaTeX \subsection{}
