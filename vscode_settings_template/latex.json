@@ -40,30 +40,12 @@
 		"body": [
 			"\\begin{table}[ht]",
 			"  \\centering",
-			"  \\begin{tabular} {lcr}",
+			"  \\begin{tabular} {p{0.2\textwidth} p{0.6\textwidth} p{0.2\textwidth}}",
 			"    \\toprule",
 			"    Header1 & Header2 & Header3 \\\\\\\\",
 			"    \\midrule",
-			"    Row1 Col1 & Row1 Col2 & Row1 Col3 \\\\\\\\",
+			"    Row1Col1 & Row1Col2 & Row1Col3 \\\\\\\\",
 			"    \\bottomrule",
-			"  \\end{tabular}",
-			"  % caption{$1}",
-			"  % label{tab:$2}",
-			"\\end{table}"
-		],
-		"description": "Table with 3 columns, caption and label"
-	},
-	"Table environment": {
-		"prefix": "table2",
-		"body": [
-			"\\begin{table}[h!]",
-			"  \\centering",
-			"  \\begin{tabular}{|l|c|r|}",
-			"    \\hline",
-			"    Header1 & Header2 & Header3 \\\\\\\\",
-			"    \\hline",
-			"    Row1 Col1 & Row1 Col2 & Row1 Col3 \\\\\\\\",
-			"    \\hline",
 			"  \\end{tabular}",
 			"  % caption{$1}",
 			"  % label{tab:$2}",
@@ -74,7 +56,7 @@
 	"Figure environment": {
 		"prefix": "image",
 		"body": [
-			"\\begin{figure}[h!]",
+			"\\begin{figure}[H]",
 			"  \\centering",
 			"  \\includegraphics[width=0.6\\linewidth]{fig/${1:image.png}}",
 			"  % caption{${2:Bildbeschreibung}}",
@@ -120,5 +102,40 @@
         "\\end{tcolorbox}"
         ],
         "description": "Insert a tcolorbox with colour pickers, title, caption and label"
-    }
+    },
+	"Create vertical line spacing 0.2cm": {
+		"prefix": "vspace-0.2",
+		"body": [
+		"\\vspace{${1:0.2}cm}$0"
+		],
+		"description": "Insert vertical space with a default of 0.2cm"
+	},
+	"Create vertical line spacing 0.5cm": {
+		"prefix": "vspace-0.5",
+		"body": [
+		"\\vspace{${1:0.5}cm}$0"
+		],
+		"description": "Insert vertical space with a default of 0.5cm"
+	},
+	"Create vertical line spacing 1cm": {
+		"prefix": "vspace-1",
+		"body": [
+		"\\vspace{${1:1}cm}$0"
+		],
+		"description": "Insert vertical space with a default of 1cm"
+	},
+	"Create vertical line spacing 1.5cm": {
+		"prefix": "vspace-1.5",
+		"body": [
+		"\\vspace{${1:1.5}cm}$0"
+		],
+		"description": "Insert vertical space with a default of 1.5cm"
+	},
+	"Create vertical line spacing 2cm": {
+		"prefix": "vspace-2",
+		"body": [
+		"\\vspace{${1:2}cm}$0"
+		],
+		"description": "Insert vertical space with a default of 2cm"
+	}
 }
