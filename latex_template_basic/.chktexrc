@@ -1,2 +1,2 @@
-# .chktexrc – deaktivate warnings 8, 12, 13, 18, 21, 36, 44, 46 globally
-CmdLine { -n8 -n12 -n13 -n18 -n21 -n36 -n44 -n46 }
+# .chktexrc – deaktivate warnings 8, 11, 12, 13, 18, 21, 26, 32, 36, 44, 46 globally
+CmdLine { -n8 -n11 -n12 -n13 -n18 -n21 -n26 -n32 -n36 -n44 -n46 }
