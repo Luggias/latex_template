@@ -1,0 +1,106 @@
+% !TEX root = latex_HSG_summary_template.tex
+\documentclass[a4paper, titlepage]{article} % Sets the document class to "article", optimized for short documents like essays or reports.
+                                            % Options:
+                                            % - a4paper: sets the paper size to A4 (210mm × 297mm)
+                                            % - titlepage: places the title, author, and date on a separate page
+
+\input{styles/mystyle.sty}                  % Loads the custom style file (preamble settings, macros, colors, environments)
+
+% ---------------------------------------------------------------
+%                   --------- Meta ---------
+% ---------------------------------------------------------------
+
+\title{LaTeX Summary Template}
+\author{Lukas Maximilian Kapferer}
+\date{\today}
+
+\hypersetup{                 % Global configuration for hyperref
+  colorlinks=true,           % Color link text instead of drawing boxes around links
+  linkcolor=black,           % Color for internal links (TOC, cross-references)
+  citecolor=black,           % Color for citation links
+  filecolor=black,           % Color for local file links
+  urlcolor=black,            % Color for external URLs and email addresses
+  pdfauthor={\theauthor},    % Sets the PDF author metadata
+  pdfcreator={\theauthor},
+  % pdfcreator={LaTeX (VS Code, latexmk, mystyle.sty v1.1)}, % Identifies the software toolchain and template version used to generate the document
+  pdftitle={\thetitle},      % Sets the PDF document title
+  pdfsubject={Your Subject}, % Sets the PDF subject field
+  pdfkeywords={University of St.Gallen, HSG, [Course Name], [Professor Name], [Semester]}, % Sets PDF keywords (comma-separated)
+  bookmarksnumbered=true,    % Include section numbers in PDF bookmarks
+  bookmarksopen=true,        % Open the bookmark tree by default
+  pdfstartview=FitH,         % Start with the page width fitted to the window
+  breaklinks=true,           % Allow line breaks in long links
+}
+
+% ---------------------------------------------------------------
+%                  --------- Document ---------
+% ---------------------------------------------------------------
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+
+  \begin{figure}[h!]
+  \centering
+  \vspace{1em}
+  \includegraphics[width=0.5\linewidth]{fig/material/HSG-Logo.png}
+  \end{figure}
+  \vspace{4em}
+  \rule{\linewidth}{0.4pt}
+
+  \vspace*{3cm}
+  \vspace{1em}
+
+  \noindent\textbf{\Huge \centering \thetitle}   % Title
+  \vspace{0.5cm}
+
+  \noindent\Large \textbf{Subtitle Goes Here}    % Subtitle
+
+  \vspace{1cm}
+  {\large \itshape Based on the lecture materials of Prof.\ Dr.\ Firstname Surname\/ \par}
+  \vspace{8cm}
+
+  {\large \protect\theauthor\par}                % Author
+  \vspace{1cm}
+
+  \small
+  University of St.Gallen (HSG) \textemdash\ [Fall/Spring] Semester [year] \\
+  Course Name - Course Nr. by Prof. Dr. Firstname Surname \\
+  \vspace{0.5cm}
+  
+  \texttt{\href{mailto:lukas@kapferer.or.at}{lukas@kapferer.or.at}}\\
+  \texttt{\href{https://www.linkedin.com/in/lukas-kapferer}{linkedin.com/in/lukas-kapferer}}\\
+  \texttt{+43 677 61 44 27 44} \\
+  \texttt{A-6020 Innsbruck}
+  \vspace{0.5cm}
+
+  Version from \texttt{\today}
+\end{titlepage}
+
+\clearpage      % Start a new page (flush all pending floats)
+\thispagestyle{empty} % Suppress header and footer (no page number) on this page
+\pagenumbering{roman} % Switch to lowercase Roman numerals (i, ii, iii, ...) for page numbers (typically used for front matter)
+\tableofcontents
+%\chapter*{Overview} % Check for relevance, doubles, define order and then add descriptive comment
+\listoffigures  % Produces the List of Figures with page references (from all captioned figures).
+\listoftables   % Produces the List of Tables with page references (from all captioned tables).
+% \printglossary[type=\acronymtype,title={List of Abbreviations}] % Prints the acronyms list (needs the glossaries package + makeglossaries/biber run).
+% \printglossary[title={Glossary of Terms}]                       % Prints the main glossary (also requires glossaries + makeglossaries/biber).
+\thispagestyle{plain}  % Set the current page style to "plain" (page number centered at the bottom)
+\newpage
+\pagenumbering{arabic} % Restart page numbering using Arabic numerals (1, 2, 3, ...) for main document content
+
+
+% ---------------------------------------------------------------
+%                   --------- Content ---------
+% ---------------------------------------------------------------
+
+% -------- Add .tex documents here --------
+\input{content/main_content.tex}
+% \input{content/bibliography.tex}
+% \input{content/figures_list.tex}
+% input{content/___.tex}
+
+% \printbibliography % Print the bibliography using BibLaTeX (automatically includes all cited references)
+\end{document}

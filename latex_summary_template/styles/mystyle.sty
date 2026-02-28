@@ -10,6 +10,7 @@
 % --- COLOR & GRAPHICS ---
 \RequirePackage{xcolor}      % Adds support for color definitions
 \RequirePackage{graphicx}    % Allows image inclusion with \includegraphics{}
+\RequirePackage{svg}         % Allows SVG inclusion with \includesvg{}
 % --- LAYOUT & GEOMETRY ---
 \RequirePackage{geometry}    % Customize page margings and layout
 \geometry{                   % Page margings for scientific purposes
@@ -42,25 +43,10 @@
                                                               % - noitemsep: removes space between individual list items
 \setlist[enumerate]{topsep=3.5pt, partopsep=3.5pt, noitemsep} % Same as above, but for enumerate lists (numbered)
 % --- HEADER/FOOTER ---
-\RequirePackage{fancyhdr} % Customize headers and footers
+\RequirePackage{fancyhdr}      % Customize headers and footers
+\RequirePackage[fit]{truncate} % Allows clean cutting of text with an ellipsis (...)
 % --- HYPERLINKS & PDF METADATA ---
 \RequirePackage{hyperref}    % Enable clickable hyperlinks and TOC links
-\hypersetup{                 % Global configuration for hyperref
-  colorlinks=true,           % Color link text instead of drawing boxes around links
-  linkcolor=black,           % Color for internal links (TOC, cross-references)
-  citecolor=black,           % Color for citation links
-  filecolor=black,           % Color for local file links
-  urlcolor=black,            % Color for external URLs and email addresses
-  pdfauthor={Lukas Maximilian Kapferer}, % PDF metadata: author
-  pdftitle={LaTeX Template}, % PDF metadata: title
-  pdfsubject={},             % PDF metadata: subject
-  pdfkeywords={},            % PDF metadata: keywords (comma-separated)
-  pdfcreator={LaTeX (latexmk, VS Code, mystyle.sty v1.1)},  % PDF metadata: creator/producer
-  bookmarksnumbered=true,    % Include section numbers in PDF bookmarks
-  bookmarksopen=true,        % Open the bookmark tree by default
-  pdfstartview=FitH,         % Start with the page width fitted to the window
-  breaklinks=true,           % Allow line breaks in long links
-}
 \RequirePackage{bookmark}    % Faster, cleaner PDF bookmarks than hyperref’s default; avoids duplicates and lets you control levels/order
 % --- CODE ENVIRONMENTS ---
 \RequirePackage{minted}      % Pygments-based code highlighting (requires `-shell-escape` and a working `pygmentize`)
@@ -262,11 +248,15 @@
 % ---------------------------------------------------------------
 %              --------- Header and Footer ---------
 % ---------------------------------------------------------------
-
 \pagestyle{fancy}   % Required for header and footer
 \fancyfoot[C]{}     % Removes automatically generated cenetered page numbering
-\lhead{\thetitle}   % Set left-header to the document title
-\lfoot{\theauthor}  % Set left-footer to the author name
+
+% --------- Header ---------
+\lhead{\includegraphics[height=2em]{fig/material/university-logo.png}} % Ensure the PNG file exists in this directory
+\chead{\thetitle}
+
+% --------- Footer ---------
+\lfoot{\theauthor}  % Set left-header to the author name
 \rfoot{\thepage}    % Insert page number to the right-footer
 \renewcommand{\footrulewidth}{0.4pt}  % Set footer line (has same width as header)
 
