@@ -1,12 +1,16 @@
 # 📄 LaTeX University Summary Template
 
-> A professional, ready-to-use LaTeX template for university summaries including a custom style, smart VSCode snippets, intuitive keyboard shortcuts, and a convenient build pipeline. Designed for students who want professional, well-formatted, consistent notes without fighting the tooling. 	A game-changer for every STEM student aiming for perfectly organized, high-quality notes.
+> A professional, ready-to-use LaTeX template for university summaries including a custom style, smart VSCode snippets, intuitive keyboard shortcuts, and a convenient build pipeline. Designed for students who want professional, well-formatted, consistent notes without fighting the tooling. A game-changer for every STEM student aiming for perfectly organized, high-quality notes.
 
 [![License: Apache License](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Made with LaTeX](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
 [![VSCode](https://img.shields.io/badge/Editor-VSCode-blue.svg)](https://code.visualstudio.com/)
+[![GitHub release](https://img.shields.io/github/v/release/Luggias/latex_template)](https://github.com/Luggias/latex_template/releases)
 
-**Author:** Lukas Kapferer | [lukas-kapferer.com](https://lukas-kapferer.com) | [github.com/Luggias](https://github.com/Luggias)
+**Author:** Lukas Kapferer | [lukas-kapferer.com](https://lukas-kapferer.com) | [github.com/Luggias](https://github.com/Luggias)  
+**Latest release:** v1.0.0  
+**Download:** https://github.com/Luggias/latex_template/releases/latest/download/latex_template.zip  
+**SHA256:** sha256:3c16f389a85c27a189487e0b4579cf94128d86b39a3b4595142af2beb50c9878  
 
 ---
 
