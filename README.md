@@ -6,11 +6,9 @@
 [![Made with LaTeX](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
 [![VSCode](https://img.shields.io/badge/Editor-VSCode-blue.svg)](https://code.visualstudio.com/)
 [![GitHub release](https://img.shields.io/github/v/release/Luggias/latex_template)](https://github.com/Luggias/latex_template/releases)
+[![Download](https://img.shields.io/badge/Download-latest_release-blue)](https://github.com/Luggias/latex_template/releases/latest/download/latex_template.zip)
 
-**Author:** Lukas Kapferer | [lukas-kapferer.com](https://lukas-kapferer.com) | [github.com/Luggias](https://github.com/Luggias)  
-**Latest release:** v1.0.0  
-**Download:** https://github.com/Luggias/latex_template/releases/latest/download/latex_template.zip  
-**SHA256:** sha256:3c16f389a85c27a189487e0b4579cf94128d86b39a3b4595142af2beb50c9878  
+**Author:** Lukas Kapferer | [lukas-kapferer.dev](https://lukas-kapferer.dev) | [github.com/Luggias](https://github.com/Luggias)  
 
 ---
 
